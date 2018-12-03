@@ -15,7 +15,7 @@ import sun.misc.BASE64Encoder;
  * DES加密 解密算法
  * 
  * @author lifq
- * @date 2015-3-17 上午10:12:11
+ * @date 2015-3-17 上午10:12:12
  */
 public class DesUtil {
 
