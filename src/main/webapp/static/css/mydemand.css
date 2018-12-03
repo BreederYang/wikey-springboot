@@ -7,7 +7,7 @@ a{
 	color:#000;
 }
 li{
-	list-style:none;	
+	list-style:none;
 }
 body{
 	background:#F8F8F9;
@@ -16,7 +16,7 @@ body{
 .head{
 	width: 100%;
 	height:45px;
-	background:#F1F0F0;	
+	background:#F1F0F0;
 }
 .head-center{
 	width:1200px;
@@ -201,7 +201,7 @@ body{
 .platSafety .left .active{
 	background: #FFC2C2;
 	color: #413939;
-	border-left: 2px solid #FF2222;	
+	border-left: 2px solid #FF2222;
 }
 .platSafety .right{
 	float: right;
@@ -236,7 +236,7 @@ body{
 }
 .platSafety .right .right_content ul .li1{
 	height: 45px;
-	line-height: 45px;	
+	line-height: 45px;
 }
 .platSafety .right .right_content ul li span{
 	color: #414141;
@@ -263,7 +263,7 @@ body{
 	font-size: 14px;
 	text-align: center;
 	border-radius: 8px;
-	height:25px;	
+	height:25px;
 	line-height: 25px;
 }
 .platSafety .right .right_content ul li span a.ck{
@@ -387,7 +387,7 @@ body{
 }
 .footer .list .weinxinqq{
 	padding-top:40px;
-} 
+}
 .footer .list .weinxinqq img{
 	width:30px;
 	height:30px;

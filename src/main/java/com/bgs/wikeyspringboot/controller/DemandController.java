@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -34,9 +35,11 @@ public class DemandController {
 
     @RequestMapping(path = "/release",method = POST)
     @ResponseBody
-    public int saveDemand(Demand demand){
-        System.out.println(demand);
-        return 1;
+    public int saveDemand(Demand demand,HttpServletRequest request){
+        HttpSession session = request.getSession();
+        User attribute = (User) session.getAttribute(DictionaryUtils.session_user_auth);
+        demand.setDemandUid(attribute.getId());
+        return  demandDao.saveDemand(demand);
     }
 
     @RequestMapping("/findProvinceById")
@@ -50,6 +53,7 @@ public class DemandController {
         User suser = (User) request.getSession().getAttribute(DictionaryUtils.session_user_auth);
         System.out.println(suser);
         List<Demand> demands = demandDao.demandList(suser.getId());
+        demands.forEach(x-> System.out.println(x));
         System.out.println(demands.size());
         model.addAttribute("demand",demands);
         return "mydemand";

@@ -11,7 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>服务商完成需求</title>
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_368076_we3l46nomcp7gb9.css">
-    <link rel="stylesheet" href="./static/css/mydemand.css">
+    <link rel="stylesheet" href="/static/css/mydemand.css">
 </head>
 <base href="<%=basePath%>">
 <body>
@@ -64,9 +64,9 @@
                     <span class="sp3">状态中</span>
                     <span class="sp4">操作</span>
                 </li>
-                <c:forEach items="${demand}" var="d" varStatus="index">
+                <c:forEach items="${demand}" var="d" varStatus="i">
                 <li>
-                    <span class="sp1">${index}</span>
+                    <span class="sp1">${i.index+1}</span>
                     <span class="sp2">${d.demandName}</span>
                     <span class="sp3 sp33">${d.demandStatus}</span>
                     <span class="sp4">

@@ -19,10 +19,10 @@ public class DemandDaoImpl implements DemandDao{
     @Override
     public int saveDemand(Demand demand) {
         String sql = "INSERT INTO wk_demand " +
-                "(demand_name,demand_content,demand_period,demand_budget,demand_status,demand_city) " +
-                "VALUES(?,?,?,?,?,?)";
+                "(demand_name,demand_content,demand_period,demand_budget,demand_status,demand_city,demand_uid) " +
+                "VALUES(?,?,?,?,?,?,?)";
         return jdbcTemplate.update(sql, demand.getDemandName(), demand.getDemandContent(), demand.getDemandPeriod(),
-                demand.getDemandBudget(), demand.getDemandStatus(), demand.getDemandCity());
+                demand.getDemandBudget(), demand.getDemandStatus(), demand.getDemandCity(),demand.getDemandUid());
     }
 
     @Override
@@ -36,6 +36,7 @@ public class DemandDaoImpl implements DemandDao{
             @Override
             public Demand mapRow(ResultSet resultSet, int i) throws SQLException {
                 Demand d = new Demand();
+                d.setDemandId(resultSet.getInt("demand_id"));
                 d.setDemandName(resultSet.getString("demand_name"));
                 d.setDemandContent(resultSet.getString("demand_content"));
                 d.setDemandPeriod(resultSet.getString("demand_period"));
