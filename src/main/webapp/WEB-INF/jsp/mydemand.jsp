@@ -42,7 +42,7 @@
             <li><a href="#">特色技能</a></li>
             <li><a href="#">作品案例</a></li>
             <li><a href="#">安全中心</a></li>
-            <li class="active"><a href="#">我的需求</a></li>
+            <li class="active"><a href="/demand/showMyDemand?status=999">我的需求</a></li>
             <li><a href="#">我的订单</a></li>
             <li><a href="#">消息</a></li>
         </ul>
@@ -50,10 +50,10 @@
     <div class="right">
         <div class="right_top">
             <ul>
-                <li><a href="" class="active">全部</a></li>
-                <li><a href="">草稿箱</a></li>
-                <li><a href="">已发布的需求</a></li>
-                <li><a href="">已完成的需求</a></li>
+                <li><a href="/demand/showMyDemand?status=999" class="active">全部</a></li>
+                <li><a href="/demand/showMyDemand?status=0">草稿箱</a></li>
+                <li><a href="/demand/showMyDemand?status=1">已发布的需求</a></li>
+                <li><a href="/demand/showMyDemand?status=9">已完成的需求</a></li>
             </ul>
         </div>
         <div class="right_content">

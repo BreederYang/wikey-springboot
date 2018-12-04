@@ -49,9 +49,9 @@ public class DemandController {
     }
 
     @RequestMapping("/showMyDemand")
-    public String showMyDemand(HttpServletRequest request, Model model){
+    public String showMyDemand(Integer status,HttpServletRequest request, Model model){
         User suser = (User) request.getSession().getAttribute(DictionaryUtils.session_user_auth);
-        List<Demand> demands = demandDao.demandList(suser.getId());
+        List<Demand> demands = demandDao.demandList(suser.getId(),status);
         model.addAttribute("demand",demands);
         return "mydemand";
     }

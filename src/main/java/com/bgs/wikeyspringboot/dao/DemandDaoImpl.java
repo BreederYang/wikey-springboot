@@ -27,11 +27,14 @@ public class DemandDaoImpl implements DemandDao{
     }
 
     @Override
-    public List<Demand> demandList(Integer uid) {
+    public List<Demand> demandList(Integer uid,Integer status) {
         StringBuffer sql = new StringBuffer();
         sql.append("SELECT * FROM wk_demand");
         if(uid>0){
             sql.append(" where demand_uid ="+uid);
+            if (status!=999){
+                sql.append(" and demand_status ="+status);
+            }
         }
         List<Demand> deList = jdbcTemplate.query(sql.toString(), new RowMapper<Demand>() {
             @Override
@@ -46,6 +49,8 @@ public class DemandDaoImpl implements DemandDao{
                 d.setDemandCity(resultSet.getInt("demand_city"));
                 d.setDemandUid(resultSet.getInt("demand_uid"));
                 d.setBargainUid(resultSet.getInt("bargain_uid"));
+                d.setApplyCount(resultSet.getInt("apply_count"));
+                d.setViewCount(resultSet.getInt("view_count"));
                 return d;
             }
         });

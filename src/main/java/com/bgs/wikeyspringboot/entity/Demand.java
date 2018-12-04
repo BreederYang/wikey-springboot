@@ -19,6 +19,54 @@ public class Demand {
     private Integer demandUid;
 //    签订用户ID
     private Integer bargainUid;
+//    申请数
+    private Integer applyCount;
+//    点击数
+    private Integer viewCount;
+//    需求类型
+    private Integer demandType;
+
+    public Integer getDemandType() {
+        return demandType;
+    }
+
+    public void setDemandType(Integer demandType) {
+        this.demandType = demandType;
+    }
+
+    @Override
+    public String toString() {
+        return "Demand{" +
+                "demandId=" + demandId +
+                ", demandName='" + demandName + '\'' +
+                ", demandContent='" + demandContent + '\'' +
+                ", demandPeriod='" + demandPeriod + '\'' +
+                ", demandBudget='" + demandBudget + '\'' +
+                ", demandStatus=" + demandStatus +
+                ", demandCity=" + demandCity +
+                ", demandUid=" + demandUid +
+                ", bargainUid=" + bargainUid +
+                ", applyCount=" + applyCount +
+                ", viewCount=" + viewCount +
+                ", demandType=" + demandType +
+                '}';
+    }
+
+    public Integer getApplyCount() {
+        return applyCount;
+    }
+
+    public void setApplyCount(Integer applyCount) {
+        this.applyCount = applyCount;
+    }
+
+    public Integer getViewCount() {
+        return viewCount;
+    }
+
+    public void setViewCount(Integer viewCount) {
+        this.viewCount = viewCount;
+    }
 
     public Integer getDemandId() {
         return demandId;
@@ -92,18 +140,4 @@ public class Demand {
         this.bargainUid = bargainUid;
     }
 
-    @Override
-    public String toString() {
-        return "Demand{" +
-                "demandId=" + demandId +
-                ", demandName='" + demandName + '\'' +
-                ", demandContent='" + demandContent + '\'' +
-                ", demandPeriod='" + demandPeriod + '\'' +
-                ", demandBudget='" + demandBudget + '\'' +
-                ", demandStatus=" + demandStatus +
-                ", demandCity=" + demandCity +
-                ", demandUid=" + demandUid +
-                ", bargainUid=" + bargainUid +
-                '}';
-    }
 }

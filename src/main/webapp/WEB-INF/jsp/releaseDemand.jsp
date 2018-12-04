@@ -64,6 +64,14 @@
                 <input type="text" name="demandName" placeholder="电商网站设计">
             </p>
             <p class="p2">所开发项目名称或应用名称，40个字符内</p>
+            <p class="p1">
+                <span>项目类型</span>
+                <select name="demandType">
+                    <option value="1">UI 设计</option>
+                    <option value="2">网站搭建</option>
+                    <option value="3">微信小程序</option>
+                </select>
+            </p>
             <p class="p1 p3">
                 <span>项目介绍</span>
                 <span style="margin-left:20px; ">
@@ -71,6 +79,7 @@
                 </span>
             </p>
             <div class="clear"></div>
+
             <p class="p1">
                 <span>项目周期</span>
                 <select name="demandPeriod">
