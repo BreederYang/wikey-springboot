@@ -4,6 +4,7 @@ import com.bgs.wikeyspringboot.dao.UserDao;
 import com.bgs.wikeyspringboot.entity.User;
 import com.bgs.wikeyspringboot.utils.DesUtil;
 import com.bgs.wikeyspringboot.utils.DictionaryUtils;
+import com.bgs.wikeyspringboot.utils.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -28,16 +31,19 @@ public class UserLoginController {
     }
     @RequestMapping(path = "/login",method = POST)
     public String Login(String username,String password, HttpServletRequest request,HttpServletResponse response) throws Exception {
-        List<User> users = userDao.loginUser(username,password);
+        String md5Encode  = MD5Utils.MD5Encode(password, "UTF-8");
+        List<User> users = userDao.loginUser(username,md5Encode);
         HttpSession session = request.getSession();
         if(users.size()>0){
-            session.setAttribute(DictionaryUtils.session_user_auth,users.get(0));
-            String enUserName = DesUtil.encrypt(users.get(0).getUsername());
-            String enPassWord = DesUtil.encrypt(users.get(0).getPassword());
-            String desString =enUserName+"_"+enPassWord;
-            Cookie cookie = new Cookie("auth",desString);
+            request.getSession().setAttribute(DictionaryUtils.session_user_auth,users.get(0));
+            //登录成功将信息写入auth cookie中
+            String authUsername= DesUtil.encrypt(users.get(0).getUsername());
+            String authPassword= DesUtil.encrypt(users.get(0).getPassword());
+            String authTime = DesUtil.encrypt(new SimpleDateFormat("yyyyMMdd").format(new Date()));
+            String authString = authUsername + "_" + authPassword + "_" +authTime;
+            Cookie cookie=new Cookie("auth",authString);
             cookie.setPath("/");
-            cookie.setMaxAge(60 * 60 * 24 * 30);
+            cookie.setMaxAge(60 * 60 * 24 * 30);//cookie保存在浏览器30天
             response.addCookie(cookie);
             return "chd1";
         }

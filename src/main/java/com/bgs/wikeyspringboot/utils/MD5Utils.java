@@ -48,7 +48,7 @@ public class MD5Utils {
     }
 
     public static void main(String[] args) {
-        String data = "alfdjaldkfjald";
+        String data = "a";
         String md5 = MD5Encode(data,"UTF-8");
         System.out.println(md5);
 

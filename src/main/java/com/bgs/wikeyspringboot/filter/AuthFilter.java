@@ -29,6 +29,7 @@ public class AuthFilter extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
        //判断用户是否登录
        if (sessionIsLogin.isLogin(request)){
+           System.out.println("用户已登录");
            return true;
        }
 
@@ -41,7 +42,7 @@ public class AuthFilter extends HandlerInterceptorAdapter {
        }
         String authCookie = null;
         for (Cookie ck:cookie){
-            if ("authCookie".equals(ck.getName())){
+            if ("auth".equals(ck.getName())){
                 authCookie=ck.getValue();
             }
         }
@@ -63,12 +64,15 @@ public class AuthFilter extends HandlerInterceptorAdapter {
             }
 
             //查询数据库
-            String Md5Pass= MD5Utils.MD5Encode(password,"utf-8");
+            System.out.println("username: "+username);
+            System.out.println("password: "+password);
             List<User> userList = userDao.loginUser(username, password);
+            System.out.println("size :"+userList.size());
             //用户名和密码匹配的情况下
             if (userList.size() > 0){
                 request.getSession().setAttribute(DictionaryUtils.session_user_auth,userList.get(0));
             }else{
+                System.out.println("not user");
                 response.sendRedirect("/tologin");
                 return false;
             }

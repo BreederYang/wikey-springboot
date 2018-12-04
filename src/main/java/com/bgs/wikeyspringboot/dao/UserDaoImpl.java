@@ -21,8 +21,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public List<User> loginUser(String username,String password) {
         String sql = "select * from wk_user where username=? and password=?";
-        String md5Encode = MD5Utils.MD5Encode(password, "UTF-8");
-        Object[] param={username,md5Encode};
+        Object[] param={username,password};
         List<User> list=jdbcTemplate.query(sql, param, new RowMapper<User>() {
             @Override
             public User mapRow(ResultSet resultSet, int i) throws SQLException {

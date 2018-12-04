@@ -56,13 +56,12 @@ $(function () {
             alert("查询失败");
         });
     }
-
     function saveDemand(demandStatus) {
+        window.editor.sync();
         var dataParam =$('#saveDemand').serializeArray();
         var cityId =$("#districtId").val();
         dataParam.push({"name":"demandCity","value":cityId})
         dataParam.push({"name":"demandStatus","value":demandStatus})
-
         $.ajax({
             type: 'post',
             url: "/demand/release",
@@ -71,18 +70,9 @@ $(function () {
         }).success(function (data) {
             if(data>0){
                 alert("添加成功")
+                window.location.href="/demand/showMyDemand";
             }
+        }).error(function (data) {
+            alert(data)
         });
     }
-    
-    // function  demandDetail(demandID) {
-    //     alert("aac");
-    //     $.ajax({
-    //         type: 'get',
-    //         url: "/demand/demandDteils",
-    //         data: {"id":demandID},
-    //         dataType:"json",
-    //     }).success(function (data) {
-    //         alert("aa")
-    //     });
-    // }

@@ -8,6 +8,13 @@
     <title>发布需求</title>
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_368076_we3l46nomcp7gb9.css">
     <link rel="stylesheet" href="/static/css/releaseDemand.css">
+    <script charset="utf-8" src="/static/kindeditor/kindeditor-all-min.js"></script>
+    <%--<script charset="utf-8" src="/editor/lang/zh-CN.js"></script>--%>
+    <script>
+        KindEditor.ready(function(K) {
+            window.editor = K.create('#editor_id');
+        });
+    </script>
 </head>
 <body>
 <!-- 头部开始 -->
@@ -51,7 +58,9 @@
         <p class="p2">所开发项目名称或应用名称，40个字符内</p>
         <p class="p1 p3">
             <span>项目介绍</span>
-            <textarea></textarea>
+            <span style="margin-left:20px; ">
+            <textarea id="editor_id" name="demandContent" style="width: 578px;height:400px;">${demand.demandContent}</textarea>
+            </span>
         </p>
         <div class="clear"></div>
         <p class="p1">
