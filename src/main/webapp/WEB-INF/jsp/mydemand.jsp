@@ -7,13 +7,13 @@
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<base href="<%=basePath%>">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>服务商完成需求</title>
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_368076_we3l46nomcp7gb9.css">
     <link rel="stylesheet" href="/static/css/mydemand.css">
+    <script src="/static/js/demandJS.js" ></script>
 </head>
-<base href="<%=basePath%>">
 <body>
 <!-- 头部开始 -->
 <%@include file="./common/header.jsp"%>
@@ -67,7 +67,7 @@
                 <c:forEach items="${demand}" var="d" varStatus="i">
                 <li>
                     <span class="sp1">${i.index+1}</span>
-                    <span class="sp2">${d.demandName}</span>
+                    <span class="sp2" ><a href="/demand/demandDteils?id=${d.demandId}" name="${d.demandName}" style="color: #2a2a2a">${d.demandName}</a></span>
                     <span class="sp3 sp33">${d.demandStatus}</span>
                     <span class="sp4">
 								<a href="" class="xiugai">修改</a>

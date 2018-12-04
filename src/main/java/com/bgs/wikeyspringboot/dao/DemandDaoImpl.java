@@ -2,6 +2,7 @@ package com.bgs.wikeyspringboot.dao;
 
 import com.bgs.wikeyspringboot.entity.Demand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -49,5 +50,15 @@ public class DemandDaoImpl implements DemandDao{
             }
         });
         return deList;
+    }
+
+    @Override
+    public Demand demandDetails(Integer did) {
+        System.out.println(did);
+        String sql = "SELECT * FROM wk_demand WHERE demand_id = ?";
+        Object [] preams ={did};
+        RowMapper<Demand> s = new BeanPropertyRowMapper<Demand>(Demand.class);
+        Demand demand = jdbcTemplate.queryForObject(sql,preams,s);
+        return demand;
     }
 }

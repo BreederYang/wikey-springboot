@@ -71,7 +71,18 @@ $(function () {
         }).success(function (data) {
             if(data>0){
                 alert("添加成功")
-                window.location.href("");
             }
         });
     }
+    
+    // function  demandDetail(demandID) {
+    //     alert("aac");
+    //     $.ajax({
+    //         type: 'get',
+    //         url: "/demand/demandDteils",
+    //         data: {"id":demandID},
+    //         dataType:"json",
+    //     }).success(function (data) {
+    //         alert("aa")
+    //     });
+    // }

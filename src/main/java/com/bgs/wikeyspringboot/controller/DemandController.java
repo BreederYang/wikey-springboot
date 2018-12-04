@@ -6,11 +6,11 @@ import com.bgs.wikeyspringboot.entity.Demand;
 import com.bgs.wikeyspringboot.entity.TArea;
 import com.bgs.wikeyspringboot.entity.User;
 import com.bgs.wikeyspringboot.utils.DictionaryUtils;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -51,13 +51,15 @@ public class DemandController {
     @RequestMapping("/showMyDemand")
     public String showMyDemand(HttpServletRequest request, Model model){
         User suser = (User) request.getSession().getAttribute(DictionaryUtils.session_user_auth);
-        System.out.println(suser);
         List<Demand> demands = demandDao.demandList(suser.getId());
-        demands.forEach(x-> System.out.println(x));
-        System.out.println(demands.size());
         model.addAttribute("demand",demands);
         return "mydemand";
     }
-
+    @RequestMapping(path = "/demandDteils",method = GET)
+    public String demandDteils(Integer id, Model model){
+        Demand demands = demandDao.demandDetails(id);
+        model.addAttribute("demand",demands);
+        return "projectdetails";
+    }
 }
 

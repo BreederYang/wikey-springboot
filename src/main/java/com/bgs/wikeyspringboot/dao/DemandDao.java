@@ -7,4 +7,5 @@ import java.util.List;
 public interface DemandDao {
     int saveDemand(Demand demand);
     List<Demand> demandList(Integer uid);
+    Demand demandDetails(Integer did);
 }
