@@ -20,10 +20,10 @@ public class DemandDaoImpl implements DemandDao{
     @Override
     public int saveDemand(Demand demand) {
         String sql = "INSERT INTO wk_demand " +
-                "(demand_name,demand_content,demand_period,demand_budget,demand_status,demand_city,demand_uid) " +
-                "VALUES(?,?,?,?,?,?,?)";
+                "(demand_name,demand_content,demand_period,demand_budget,demand_status,demand_city,demand_uid,view_count,apply_count) " +
+                "VALUES(?,?,?,?,?,?,?,?,?)";
         return jdbcTemplate.update(sql, demand.getDemandName(), demand.getDemandContent(), demand.getDemandPeriod(),
-                demand.getDemandBudget(), demand.getDemandStatus(), demand.getDemandCity(),demand.getDemandUid());
+                demand.getDemandBudget(), demand.getDemandStatus(), demand.getDemandCity(),demand.getDemandUid(),0,0);
     }
 
     @Override
@@ -51,6 +51,7 @@ public class DemandDaoImpl implements DemandDao{
                 d.setBargainUid(resultSet.getInt("bargain_uid"));
                 d.setApplyCount(resultSet.getInt("apply_count"));
                 d.setViewCount(resultSet.getInt("view_count"));
+                d.setDemandType(resultSet.getInt("demand_type"));
                 return d;
             }
         });
@@ -65,5 +66,11 @@ public class DemandDaoImpl implements DemandDao{
         RowMapper<Demand> s = new BeanPropertyRowMapper<Demand>(Demand.class);
         Demand demand = jdbcTemplate.queryForObject(sql,preams,s);
         return demand;
+    }
+
+    @Override
+    public int updateCount(Integer uid) {
+        int update = jdbcTemplate.update("UPDATE wk_demand SET view_count= view_count + 1 WHERE demand_id =?",uid);
+        return update;
     }
 }

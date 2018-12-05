@@ -8,4 +8,5 @@ public interface DemandDao {
     int saveDemand(Demand demand);
     List<Demand> demandList(Integer uid,Integer status);
     Demand demandDetails(Integer did);
+    int updateCount(Integer uid);
 }

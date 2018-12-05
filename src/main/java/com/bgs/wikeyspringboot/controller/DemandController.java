@@ -50,6 +50,9 @@ public class DemandController {
 
     @RequestMapping("/showMyDemand")
     public String showMyDemand(Integer status,HttpServletRequest request, Model model){
+        if (status==null){
+            status=999;
+        }
         User suser = (User) request.getSession().getAttribute(DictionaryUtils.session_user_auth);
         List<Demand> demands = demandDao.demandList(suser.getId(),status);
         model.addAttribute("demand",demands);
@@ -58,6 +61,9 @@ public class DemandController {
     @RequestMapping(path = "/demandDteils",method = GET)
     public String demandDteils(Integer id, Model model){
         Demand demands = demandDao.demandDetails(id);
+        if(demands!=null){
+            demandDao.updateCount(demands.getDemandId());
+        }
         model.addAttribute("demand",demands);
         return "projectdetails";
     }

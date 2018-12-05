@@ -65,17 +65,17 @@
                     <span class="sp4">操作</span>
                 </li>
                 <c:forEach items="${demand}" var="d" varStatus="i">
-                <li>
-                    <span class="sp1">${i.index+1}</span>
-                    <span class="sp2" ><a href="/demand/demandDteils?id=${d.demandId}" name="${d.demandName}" style="color: #2a2a2a">${d.demandName}</a></span>
-                    <span class="sp3 sp33">${d.demandStatus}</span>
-                    <span class="sp4">
-								<a href="" class="xiugai">修改</a>
-								<a href="" class="baocun">保存</a>
-								<a href="" class="shancu">删除</a>
-								<a href="" class="fabu">发布</a>
-							</span>
-                </li>
+                    <li>
+                        <span class="sp1">${i.index+1}</span>
+                        <span class="sp2" ><a href="/demand/demandDteils?id=${d.demandId}" name="${d.demandName}" style="color: #2a2a2a">${d.demandName}</a></span>
+                        <span class="sp3 sp33">${d.demandStatus}</span>
+                        <span class="sp4">
+                                    <a href="" class="xiugai">修改</a>
+                                    <a href="" class="baocun">保存</a>
+                                    <a href="" class="shancu">删除</a>
+                                    <a href="" class="fabu">发布</a>
+                                </span>
+                    </li>
                 </c:forEach>
             </ul>
         </div>
