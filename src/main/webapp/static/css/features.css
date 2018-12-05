@@ -283,7 +283,19 @@ body{
 	margin-right: 20px;
 	margin-top:17px;
 }
-
+.platSafety .right .div3 .p44 span{
+	display: inline-block;
+	width: 98px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	border:1px solid #8E8E8E;
+	border-radius: 25px;
+	font-size: 14px;
+	color: #2A2A2A;
+	margin-right: 20px;
+	margin-top:17px;
+}
 /*大威平台 发布需求 结束 */
 
 

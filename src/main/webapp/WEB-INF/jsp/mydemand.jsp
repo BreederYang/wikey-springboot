@@ -33,20 +33,9 @@
 
 <!-- 大威平台 发布需求 开始 -->
 <div class="platSafety">
-    <div class="left">
-        <div class="left_top">
-            大威平台
-        </div>
-        <ul>
-            <li><a href="#">个人资料</a></li>
-            <li><a href="#">特色技能</a></li>
-            <li><a href="#">作品案例</a></li>
-            <li><a href="#">安全中心</a></li>
-            <li class="active"><a href="/demand/showMyDemand?status=999">我的需求</a></li>
-            <li><a href="#">我的订单</a></li>
-            <li><a href="#">消息</a></li>
-        </ul>
-    </div>
+
+    <%@include file="common/left.jsp"%>
+
     <div class="right">
         <div class="right_top">
             <ul>
