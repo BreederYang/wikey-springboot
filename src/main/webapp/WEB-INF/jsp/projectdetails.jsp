@@ -71,7 +71,7 @@
             </div>
             <div>
                 <p>已浏览</p>
-                <p><span class="sp3">6</span>人</p>
+                <p><span class="sp3">${demand.viewCount}</span>人</p>
             </div>
         </div>
     </div>

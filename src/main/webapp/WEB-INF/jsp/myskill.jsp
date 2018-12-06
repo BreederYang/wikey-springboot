@@ -12,7 +12,8 @@
     <title>特色技能</title>
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_368076_we3l46nomcp7gb9.css">
     <link rel="stylesheet" href="/static/css/features.css">
-    <script src="/static/js/demandJS.js" ></script>
+    <script src="./static/js/jquery.min.js"></script>
+    <script src="/static/js/skill.js"></script>
 </head>
 <body>
 <!-- 头部开始 -->
@@ -39,20 +40,21 @@
         <div class="right_top">
             特色技能
         </div>
-        <p class="p2">
-            <input type="text">
-            <a href="">添加</a>
-        </p>
         <c:forEach items="${skillPOLsit}" var="sp" >
             <div class="div3">
                 <p>${sp.skill.skillName}</p>
                 <p class="p44">
                     <c:forEach  items="${sp.skillList}" var="skills">
-                        <a href="">${skills.skillName}</a>
+                        <span check="${skills.isCheck}" skill-id="${skills.id}"
+                              style="background-color:${skills.isCheck=="true" ? '#FF3737':'#FFF'}">${skills.skillName}</span>
                     </c:forEach>
                 </p>
+
             </div>
         </c:forEach>
+        <p class="p2">
+            <a id="comimed" >提交</a>
+        </p>
     </div>
 </div>
 <!-- 大威平台 发布需求 结束 -->

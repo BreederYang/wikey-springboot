@@ -4,6 +4,16 @@ public class Skill {
     private Integer id;
     private String skillName;
     private Integer skillPid;
+//  判断是否选中 不存库
+    private String isCheck;
+
+    public String getIsCheck() {
+        return isCheck;
+    }
+
+    public void setIsCheck(String isCheck) {
+        this.isCheck = isCheck;
+    }
 
     public Integer getId() {
         return id;
@@ -35,6 +45,7 @@ public class Skill {
                 "id=" + id +
                 ", skillName='" + skillName + '\'' +
                 ", skillPid=" + skillPid +
+                ", isCheck='" + isCheck + '\'' +
                 '}';
     }
 }
