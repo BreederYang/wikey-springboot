@@ -81,5 +81,9 @@ public class SkillController {
         User user = (User)request.getSession().getAttribute(DictionaryUtils.session_user_auth);
         return skillDao.addProviderSkill(skids, user.getId());
     }
+    @RequestMapping(path = "/personal",method = RequestMethod.GET)
+    public String personal(){
+        return "personal";
+    }
 
 }

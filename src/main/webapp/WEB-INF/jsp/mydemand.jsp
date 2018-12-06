@@ -11,7 +11,7 @@
 <head>
     <title>服务商完成需求</title>
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_368076_we3l46nomcp7gb9.css">
-    <link rel="stylesheet" href="/static/css/mydemand.css">
+    <link rel="stylesheet" href="./static/css/mydemand.css">
     <script src="/static/js/demandJS.js" ></script>
 </head>
 <body>

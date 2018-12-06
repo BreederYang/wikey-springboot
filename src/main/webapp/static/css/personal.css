@@ -252,6 +252,17 @@ body{
 	background: #FF2529;
 	margin-top: 25px;
 }
+.platSafety .right .mytable tr span{
+	display: inline-block;
+	width: 130px;
+	height:40px;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 10px;
+	color:#fff;
+	background: #FF2529;
+	margin-top: 25px;
+}
 /*大威平台 发布需求 结束 */
 
 
