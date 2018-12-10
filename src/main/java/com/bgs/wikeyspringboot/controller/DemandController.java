@@ -81,7 +81,7 @@ public class DemandController {
 //        所有省
         List<TArea> provinces = citysDao.findCitys(1);
 //        所有市
-        List<TArea> citys = citysDao.findCitys(2);
+        List<TArea> citys = citysDao.findProvince(cityId);
 //        任务分类
         List<TaskClass> app1List = demandDao.taskList(1);
 //        应用领域

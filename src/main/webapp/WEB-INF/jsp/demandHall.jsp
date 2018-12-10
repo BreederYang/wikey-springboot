@@ -80,7 +80,7 @@
         <div id="city" class="city-hidden">
             <c:forEach items="${citysList}" var="city" >
                 <a class="left-city" href="/demand/demandList?cityId=${city.areaId}&taskid=${taskid}&application=${appid}">
-                    <span>${fn:substring(city.areaname,0,2)}</span></a>
+                    <span>${city.areaname}</span></a>
             </c:forEach>
         </div>
 
