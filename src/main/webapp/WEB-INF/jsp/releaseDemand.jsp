@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -56,9 +57,17 @@
             <p class="p1">
                 <span>项目类型</span>
                 <select name="demandType">
-                    <option value="1">UI 设计</option>
-                    <option value="2">网站搭建</option>
-                    <option value="3">微信小程序</option>
+                    <c:forEach items="${t1}" var="t1">
+                        <option value="${t1.id}">${t1.task}</option>
+                    </c:forEach>
+                </select>
+            </p>
+            <p class="p1">
+                <span>需求类型</span>
+                <select name="application">
+                    <c:forEach items="${t2}" var="t2">
+                        <option value="${t2.id}">${t2.task}</option>
+                    </c:forEach>
                 </select>
             </p>
             <p class="p1 p3">

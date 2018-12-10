@@ -59,8 +59,12 @@ $(function () {
     function saveDemand(demandStatus) {
         window.editor.sync();
         var dataParam =$('#saveDemand').serializeArray();
-        var cityId =$("#districtId").val();
+        var provinceId =$("#provinceId").val();
+        var cityId =$("#cityId").val();
+        var districtId =$("#districtId").val();
+        dataParam.push({"name":"demandProvince","value":provinceId})
         dataParam.push({"name":"demandCity","value":cityId})
+        dataParam.push({"name":"demandCounties","value":districtId})
         dataParam.push({"name":"demandStatus","value":demandStatus})
         $.ajax({
             type: 'post',

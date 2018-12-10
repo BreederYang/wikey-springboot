@@ -4,6 +4,7 @@ import com.bgs.wikeyspringboot.dao.CitysDao;
 import com.bgs.wikeyspringboot.dao.DemandDao;
 import com.bgs.wikeyspringboot.entity.Demand;
 import com.bgs.wikeyspringboot.entity.TArea;
+import com.bgs.wikeyspringboot.entity.TaskClass;
 import com.bgs.wikeyspringboot.entity.User;
 import com.bgs.wikeyspringboot.utils.DictionaryUtils;
 import com.sun.org.apache.xpath.internal.operations.Mod;
@@ -29,7 +30,11 @@ public class DemandController {
     private CitysDao citysDao;
 
     @RequestMapping(path = "/release",method = GET)
-    public String toReleaseDemand(HttpServletRequest request){
+    public String toReleaseDemand(Model model){
+        List<TaskClass> t1 = demandDao.taskList(1);
+        List<TaskClass> t2 = demandDao.taskList(2);
+        model.addAttribute("t1",t1);
+        model.addAttribute("t2",t2);
         return "releaseDemand";
     }
 
@@ -39,6 +44,7 @@ public class DemandController {
         HttpSession session = request.getSession();
         User attribute = (User) session.getAttribute(DictionaryUtils.session_user_auth);
         demand.setDemandUid(attribute.getId());
+        System.out.println(demand);
         return  demandDao.saveDemand(demand);
     }
 
@@ -66,6 +72,30 @@ public class DemandController {
         }
         model.addAttribute("demand",demands);
         return "projectdetails";
+    }
+    @RequestMapping(path = "/demandList",method = GET)
+    public String demandList(Integer taskid,Integer application,Integer cityId,Model model){
+//        需求
+        List<Demand> demandlist = demandDao.findDemandlist(taskid, application, cityId);
+       // System.out.println("-- size :"+demandlist.size());
+//        所有省
+        List<TArea> provinces = citysDao.findCitys(1);
+//        所有市
+        List<TArea> citys = citysDao.findCitys(2);
+//        任务分类
+        List<TaskClass> app1List = demandDao.taskList(1);
+//        应用领域
+        List<TaskClass> app2List = demandDao.taskList(2);
+        model.addAttribute("provinceList",provinces);
+        model.addAttribute("citysList",citys);
+        model.addAttribute("taskList",app1List);
+        model.addAttribute("appList",app2List);
+        model.addAttribute("demandlist",demandlist);
+        model.addAttribute("taskid",taskid);
+        model.addAttribute("appid",application);
+        model.addAttribute("cityId",cityId);
+
+        return "demandHall";
     }
 }
 

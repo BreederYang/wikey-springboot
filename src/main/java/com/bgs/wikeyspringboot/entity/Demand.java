@@ -13,8 +13,12 @@ public class Demand {
     private String demandBudget;
 //    状态
     private Integer demandStatus;
-//    所在城市ID
+//    省份
+    private Integer demandProvince;
+    //    所在城市ID
     private Integer demandCity;
+//    县区
+    private Integer demandCounties;
 //    所属用户ID
     private Integer demandUid;
 //    签订用户ID
@@ -25,14 +29,12 @@ public class Demand {
     private Integer viewCount;
 //    需求类型
     private Integer demandType;
-
-    public Integer getDemandType() {
-        return demandType;
-    }
-
-    public void setDemandType(Integer demandType) {
-        this.demandType = demandType;
-    }
+//    创建时间
+    private String createTime;
+//    截止时间
+    private String cutTime;
+//    应用领域
+    private Integer application;
 
     @Override
     public String toString() {
@@ -43,13 +45,66 @@ public class Demand {
                 ", demandPeriod='" + demandPeriod + '\'' +
                 ", demandBudget='" + demandBudget + '\'' +
                 ", demandStatus=" + demandStatus +
+                ", demandProvince=" + demandProvince +
                 ", demandCity=" + demandCity +
+                ", demandCounties=" + demandCounties +
                 ", demandUid=" + demandUid +
                 ", bargainUid=" + bargainUid +
                 ", applyCount=" + applyCount +
                 ", viewCount=" + viewCount +
                 ", demandType=" + demandType +
+                ", createTime='" + createTime + '\'' +
+                ", cutTime='" + cutTime + '\'' +
+                ", application=" + application +
                 '}';
+    }
+
+    public Integer getDemandProvince() {
+        return demandProvince;
+    }
+
+    public void setDemandProvince(Integer demandProvince) {
+        this.demandProvince = demandProvince;
+    }
+
+    public Integer getDemandCounties() {
+        return demandCounties;
+    }
+
+    public void setDemandCounties(Integer demandCounties) {
+        this.demandCounties = demandCounties;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getCutTime() {
+        return cutTime;
+    }
+
+    public void setCutTime(String cutTime) {
+        this.cutTime = cutTime;
+    }
+
+    public Integer getApplication() {
+        return application;
+    }
+
+    public void setApplication(Integer application) {
+        this.application = application;
+    }
+
+    public Integer getDemandType() {
+        return demandType;
+    }
+
+    public void setDemandType(Integer demandType) {
+        this.demandType = demandType;
     }
 
     public Integer getApplyCount() {

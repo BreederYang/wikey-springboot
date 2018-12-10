@@ -16,7 +16,7 @@
         </div>
         <div class="nav-right">
             <input type="text" placeholder="输入关键字找人/服务">
-            <a href="#">发布需求</a>
+            <a href="/demand/release">发布需求</a>
         </div>
     </div>
 </nav>

@@ -46,7 +46,8 @@
                 <p class="p44">
                     <c:forEach  items="${sp.skillList}" var="skills">
                         <span check="${skills.isCheck}" skill-id="${skills.id}"
-                              style="background-color:${skills.isCheck=="true" ? '#FF3737':'#FFF'}">${skills.skillName}</span>
+                              style="background-color:${skills.isCheck=="true" ? '#FF3737':'#FFF'}">
+                                ${skills.skillName}</span>
                     </c:forEach>
                 </p>
 

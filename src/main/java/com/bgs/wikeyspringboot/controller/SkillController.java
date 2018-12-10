@@ -6,11 +6,9 @@ import com.bgs.wikeyspringboot.entity.Skill;
 import com.bgs.wikeyspringboot.entity.SkillPojo;
 import com.bgs.wikeyspringboot.entity.User;
 import com.bgs.wikeyspringboot.utils.DictionaryUtils;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -44,7 +42,8 @@ public class SkillController {
 //        取出服务商的技能
         String workSkill = proByUid.getWorkSkill();
         String[] skillArr = workSkill.split(",");
-        Arrays.stream(skillArr).forEach(x-> System.out.println(x));
+
+
 //          便利父级记录
         for (int i =0;i<skillParentList.size();i++){
             pojo = new SkillPojo();
@@ -83,6 +82,7 @@ public class SkillController {
     }
     @RequestMapping(path = "/personal",method = RequestMethod.GET)
     public String personal(){
+//      供应商个人资料
         return "personal";
     }
 

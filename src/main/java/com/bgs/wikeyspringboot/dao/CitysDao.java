@@ -8,4 +8,5 @@ public interface CitysDao {
 
     TArea findCityById(Integer areaId);
     List<TArea> findProvince(Integer parentId);
+    List<TArea> findCitys(Integer lv);
 }

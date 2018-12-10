@@ -4,6 +4,7 @@ public class Skill {
     private Integer id;
     private String skillName;
     private Integer skillPid;
+
 //  判断是否选中 不存库
     private String isCheck;
 

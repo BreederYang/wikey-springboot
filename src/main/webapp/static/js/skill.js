@@ -9,8 +9,10 @@
                 data.push($(this).attr("skill-id"))
             }
         })
+        console.log(data.toString())
         //修改数组数据
         updateArray(data);
+
         $('#comimed').click(data,function () {
             $.ajax({
                 type: 'post',
@@ -28,9 +30,9 @@
     function updateArray(data) {
         $('.div3 .p44 span').click(function () {
             // 三木运算符
-            // var isCheck =(($(this).attr("check"))=='false') ? ($(this).attr("check","true")): ($(this).attr("check","false"));
             var isCheck =(($(this).attr("check"))=='false') ? 'true':'false';
             $(this).attr("check",isCheck);
+
             if(($(this).attr("check"))=='false'){
                 for(var i =0;i<data.length;i++){
                     if(data[i]==($(this).attr("skill-id"))){

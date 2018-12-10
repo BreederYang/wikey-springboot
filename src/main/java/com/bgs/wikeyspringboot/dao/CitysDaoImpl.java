@@ -2,6 +2,7 @@ package com.bgs.wikeyspringboot.dao;
 
 import com.bgs.wikeyspringboot.entity.TArea;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -41,5 +42,17 @@ public class CitysDaoImpl implements CitysDao{
             }
         });
         return tAreas;
+    }
+
+    @Override
+    public List<TArea> findCitys(Integer lv) {
+        StringBuffer sql = new StringBuffer();
+        sql.append("SELECT * FROM t_area WHERE 1=1");
+        if(lv != null){
+            sql.append(" and level = "+lv);
+        }
+        RowMapper<TArea> tAreaRowMapper = new BeanPropertyRowMapper<>(TArea.class);
+        List<TArea> query = jdbcTemplate.query(sql.toString(), tAreaRowMapper);
+        return query;
     }
 }
